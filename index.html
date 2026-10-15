@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Block Puzzle AI</title>
+    <meta name="description" content="A 9×9 block placement puzzle and a search-based AI that plays it." />
+    <link rel="stylesheet" href="/src/web/style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="board-wrap">
+        <div id="board" class="board"></div>
+        <div id="overlay" class="overlay" hidden></div>
+      </section>
+
+      <aside class="panel">
+        <header class="title">
+          <h1>Block Puzzle AI</h1>
+          <a href="https://github.com/Glor1us/block-puzzle-ai" target="_blank" rel="noopener">Source on GitHub</a>
+        </header>
+        <div class="score-block">
+          <div id="score" class="score">0</div>
+          <div class="sub">
+            <span>Moves: <b id="moves">0</b></span>
+            <span>Streak: <b id="streak">0</b></span>
+          </div>
+          <div id="last" class="last">&nbsp;</div>
+        </div>
+
+        <div id="tray" class="tray"></div>
+
+        <div class="controls">
+          <div class="row">
+            <button id="play" class="primary">▶ Play</button>
+            <button id="step">Step</button>
+            <button id="new" title="Next seed">New game</button>
+          </div>
+          <label class="seed">
+            <span>Bot</span>
+            <select id="botSelect">
+              <option value="search-tuned">Beam search (tuned weights)</option>
+              <option value="search">Beam search</option>
+              <option value="greedy-tuned">Greedy (tuned weights)</option>
+              <option value="greedy">Greedy</option>
+              <option value="random">Random</option>
+            </select>
+          </label>
+          <label class="speed">
+            <span>Speed: <b id="speedLabel"></b></span>
+            <input id="speed" type="range" min="0" max="8" step="1" value="3" />
+          </label>
+          <label class="seed">
+            <span>Seed</span>
+            <input id="seed" type="number" min="1" value="1" />
+            <button id="randomSeed" title="Random seed">🎲</button>
+          </label>
+        </div>
+
+        <div class="history">
+          <div class="history-title">Games this session</div>
+          <ol id="history"></ol>
+        </div>
+      </aside>
+    </main>
+    <script type="module" src="/src/web/main.ts"></script>
+  </body>
+</html>
