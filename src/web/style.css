@@ -124,6 +124,7 @@ button {
 }
 button:hover { border-color: var(--accent); }
 button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+button:disabled { opacity: 0.45; cursor: default; border-color: var(--grid-line); }
 
 .speed, .seed { display: flex; flex-direction: column; gap: 6px; color: var(--muted); }
 .seed { flex-direction: row; align-items: center; gap: 8px; }

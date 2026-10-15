@@ -9,6 +9,10 @@ tuned beam search that scores **~1600× more than random** and survives thousand
 **▶ Live demo: [glor1us.github.io/block-puzzle-ai](https://glor1us.github.io/block-puzzle-ai/)**
 — watch any bot play, step through its moves or run it in turbo.
 
+<p align="center">
+  <img src="docs/media/gameplay.gif" alt="Beam-search bot playing: pieces are placed one by one, a full row clears and the streak counter grows" width="720">
+</p>
+
 ## Results
 
 1000 games per bot on the same seeds ([full table and analysis](bench/RESULTS.md)):
@@ -28,6 +32,14 @@ Three pieces are dealt per turn and can be placed in any order. Full rows, colum
 Clearing several regions at once is a *combo*, and clearing on consecutive placements builds a *streak*
 multiplier. Pieces never rotate. The game ends when no piece in the tray fits. Full spec and scoring formula:
 [docs/RULES.md](docs/RULES.md).
+
+## Viewer
+| Move preview | Game over and session history |
+|---|---|
+| ![The bot outlines the chosen tray piece and shows where it will land](docs/media/screenshot.png) | ![Game-over overlay with a list of finished games](docs/media/game-over.png) |
+
+At slow speeds the bot outlines the tray piece it picked and shows the landing cells before it places the piece.
+The last placement is highlighted, cleared cells flash, and pieces with no legal spot are drawn faded.
 
 ## How the AI works
 **1. Heuristic evaluation.** A board is scored as a weighted sum of a few cheap features: filled cells, isolated
